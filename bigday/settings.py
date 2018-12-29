@@ -120,14 +120,22 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_ROOT = 'static_root'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join('bigday', 'static'),
+    os.path.join(BASE_DIR, 'bigday/static'),
+    os.path.join(BASE_DIR, 'photo/uploads'),
 )
+
+# Beware: Django sucks with media
+# web browser location
+MEDIA_URL = '/media/'
 
 # the address your emails (save the dates/invites/etc.) will come from
 DEFAULT_WEDDING_FROM_EMAIL = 'You and Your Partner <happilyeverafter@example.com>'

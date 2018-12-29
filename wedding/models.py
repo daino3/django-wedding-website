@@ -9,7 +9,7 @@ class Photo(models.Model):
     description = models.CharField(max_length=500, null=True)
     name = models.CharField(max_length=250, null=False)
 
-    photo = models.ImageField(upload_to='photos', max_length=200, storage=FileSystemStorage())
+    photo = models.ImageField(upload_to='photo/uploads', max_length=200, storage=FileSystemStorage())
     # timestamps
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
