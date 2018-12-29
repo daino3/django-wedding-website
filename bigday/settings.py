@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'guests',
+    'guests.apps.GuestsConfig',
+    'wedding.apps.WeddingConfig',
     'django_extensions',
 ]
 
@@ -141,3 +142,65 @@ try:
     from .localsettings import *
 except ImportError:
     pass
+
+
+LOG_FORMAT = '{}[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s{}'
+LOG_DATEFMT = '%a %Y-%m-%d %H:%M:%S%z'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'custom': {
+            'format': LOG_FORMAT.format('', ''),
+            'datefmt': LOG_DATEFMT
+        },
+    },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'custom',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'propagate': False,
+            'level': 'DEBUG',
+        },
+        'django.db': {
+            'handlers': ['console'],
+            'propagate': False,
+            'level': 'INFO',  # noisy
+        },
+        'bigday': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'guests': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'scripts': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'wedding': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+}
