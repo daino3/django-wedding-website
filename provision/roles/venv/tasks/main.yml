@@ -1,0 +1,13 @@
+---
+
+- name: Main | Create env directory
+  file: path={{ venv_dir }} state=directory owner={{ venv_user }} recurse=yes
+
+- name: Main | create virtualenv with python 3.6
+  become: yes
+  become_user: "{{ venv_user }}"
+  pip:
+    requirements: "{{ venv_working_directory }}/requirements.txt"
+    virtualenv: "{{ venv_dir }}"
+    virtualenv_python: python3.6
+    extra_args: --no-input

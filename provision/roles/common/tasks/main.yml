@@ -1,0 +1,10 @@
+- name: common | Reinstall build-essential so make commands are available
+  apt: name=build-essential state=present update_cache=yes
+
+- name: common | ensure github.com is a known host
+  lineinfile:
+    dest: /etc/ssh/ssh_known_hosts
+    state: present
+    create: yes
+    regexp: "^github\\.com"
+    line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"

@@ -1,0 +1,5 @@
+[prod]
+54.187.205.182
+
+[all:vars]
+ansible_user=ubuntu

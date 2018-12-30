@@ -1,0 +1,2 @@
+nginx_service_name: wedding
+nginx_service_port: 8000

@@ -1,0 +1,25 @@
+- name: Create rsync directory if it doesnt't exist
+  sudo: yes
+  file:
+    path: "{{ app_dir }}"
+    state: directory
+    owner: '{{ app_user }}'
+    group: '{{ app_user }}'
+    mode: 0777
+
+- name: Synchronize and delete files on dest on the remote host that are not found in src of localhost.
+  sudo: yes
+  synchronize:
+    src: "{{ playbook_dir }}/.."
+    dest: "{{ app_dir }}"
+    delete: yes
+    recursive: yes
+
+- name: Make everything available cuz YOLO
+  file:
+    dest: "{{ app_dir }}"
+    owner: '{{ app_user }}'
+    group: '{{ app_user }}'
+    mode: u=rwX,g=rX,o=rX
+    recurse: yes
+

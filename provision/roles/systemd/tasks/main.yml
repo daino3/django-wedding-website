@@ -1,0 +1,26 @@
+---
+
+- name: Systemd | create log directory if it doesn't exist
+  file:
+    path: '{{ systemd_logdir }}'
+    state: directory
+    owner: '{{ systemd_service_user }}'
+    group: root
+    mode: 0777
+
+- name: Systemd | Ensure log file available
+  copy:
+    content: ''
+    dest: '{{ systemd_logto }}'
+    force: no
+    owner: '{{ systemd_service_user }}'
+    mode: 0777
+
+- name: Systemd | Create Unit file
+  template:
+    src: service.j2
+    dest: '/etc/systemd/system/{{ systemd_service_name }}.service'
+    mode: 644
+  notify:
+    - reload systemctl
+

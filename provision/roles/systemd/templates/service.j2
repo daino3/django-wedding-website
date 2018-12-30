@@ -1,0 +1,15 @@
+[Unit]
+Description=Wedding Site
+After=syslog.target
+
+[Service]
+User={{ systemd_service_user }}
+Restart=always
+WorkingDirectory={{ systemd_working_directory }}
+ExecStart={{ systemd_venv_dir }}/bin/uwsgi --ini uwsgi.ini
+Type=notify
+NotifyAccess=all
+KillSignal=SIGQUIT
+
+[Install]
+WantedBy=multi-user.target

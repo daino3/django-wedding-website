@@ -1,0 +1,22 @@
+---
+
+- include: install.deb.yml
+  when: ansible_os_family == 'Debian'
+
+- file: state=directory name=/usr/share/python
+
+- name: Install pip
+  apt: name=python3-pip state=present
+
+- name: Update tools
+  shell: pip3 install -U setuptools virtualenv
+
+- name: Install virtualenv
+  pip: name="virtualenv" executable=pip3
+  with_items: "{{ python_versions }}"
+
+- name: Setup virtualenvs
+  shell: virtualenv {{item.path}} --python={{item.python|default('python')}}
+  args:
+    creates: "{{item.path}}"
+  with_items: "{{ python_virtualenvs }}"

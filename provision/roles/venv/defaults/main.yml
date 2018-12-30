@@ -1,0 +1,3 @@
+venv_dir: /opt/virtual_env/
+venv_user: ubuntu
+venv_working_directory: /var/www/wedding/

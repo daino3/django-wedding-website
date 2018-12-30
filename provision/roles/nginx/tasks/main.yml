@@ -1,0 +1,21 @@
+---
+
+- name: Nginx | install
+  apt: name=nginx update_cache=true
+
+- name: Nginx | adjust firewall to allow nginx
+  shell: sudo ufw allow 'Nginx HTTP'
+
+- name: Nginx | write server config to sites-available
+  template:
+    src: service.j2
+    dest: '/etc/nginx/sites-available/{{ nginx_service_name }}'
+
+- name: Nginx | symlink sites-available to sites-enabled
+  file:
+    src: '/etc/nginx/sites-available/{{ nginx_service_name }}'
+    dest: '/etc/nginx/sites-enabled/{{ nginx_service_name }}'
+    state: link
+
+- name: Nginx | restart
+  service: name=nginx state=restarted enabled=yes

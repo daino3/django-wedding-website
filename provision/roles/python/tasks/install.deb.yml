@@ -1,0 +1,24 @@
+---
+
+- include_vars: "{{ansible_distribution}}.yml"
+
+- name: Install python-pycurl
+  apt: name=python-pycurl
+
+- name: Install software properties common
+  apt: name=software-properties-common state=present
+
+- name: Add python apt repository
+  command: sudo add-apt-repository ppa:deadsnakes/ppa -y
+
+- name: Update apt cache
+  apt: update_cache=yes
+
+
+- name: Install python
+  apt: name=python{{item}} state=present
+  with_items: "{{ python_versions }}"
+
+- name: Install python-dev
+  apt: name=python{{item}}-dev state=present
+  with_items: "{{ python_versions }}"
