@@ -22,3 +22,6 @@ db_seed:
 shell:
 	python manage.py shell_plus
 
+deploy:
+	ssh-add keypairs/wedding.pem
+	ansible-playbook -v -i provision/inventories/prod/hosts provision/main.yml
