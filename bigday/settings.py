@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'guests.apps.GuestsConfig',
     'wedding.apps.WeddingConfig',
     'django_extensions',
+    'rest_framework',
 ]
 
 MIDDLEWARE_CLASSES = [

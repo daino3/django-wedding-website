@@ -6,8 +6,15 @@ from django.core.files.storage import FileSystemStorage
 # Create your models here.
 
 class Photo(models.Model):
+    CHOICES = (
+        ('hero', 'Hero'),
+        ('story', 'Our Story'),
+        ('adler', 'Adler Planetarium'),
+        ('wedding_party', 'Wedding Party'),
+    )
+
     description = models.CharField(max_length=500, null=True)
-    name = models.CharField(max_length=250, null=False)
+    name = models.CharField(max_length=250, null=False, choices=CHOICES)
 
     photo = models.ImageField(upload_to='photo/uploads', max_length=200, storage=FileSystemStorage())
     # timestamps
