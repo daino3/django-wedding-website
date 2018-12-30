@@ -10,6 +10,9 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from guests.models import Party
 
+import logging
+
+LOG = logging.getLogger(__name__)
 
 SAVE_THE_DATE_TEMPLATE = 'guests/email_templates/save_the_date.html'
 SAVE_THE_DATE_CONTEXT_MAP = {
@@ -71,7 +74,7 @@ def send_save_the_date_to_party(party, test_only=False):
     context = get_save_the_date_context(get_template_id_from_party(party))
     recipients = party.guest_emails
     if not recipients:
-        print '===== WARNING: no valid email addresses found for {} ====='.format(party)
+        LOG.info("===== WARNING: no valid email addresses found for {} =====".format(party))
     else:
         send_save_the_date_email(
             context,
@@ -131,7 +134,7 @@ def send_save_the_date_email(context, recipients, test_only=False):
             msg_img.add_header('Content-ID', '<{}>'.format(filename))
             msg.attach(msg_img)
 
-    print 'sending {} to {}'.format(context['name'], ', '.join(recipients))
+    LOG.info('sending {} to {}'.format(context['name'], ', '.join(recipients)))
     if not test_only:
         msg.send()
 

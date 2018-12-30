@@ -1,6 +1,8 @@
 from django.core.management import BaseCommand
 from guests.models import Party, Guest
+import logging
 
+LOG = logging.getLogger(__name__)
 
 class Command(BaseCommand):
 
@@ -8,6 +10,6 @@ class Command(BaseCommand):
         count = Guest.objects.count()
         if raw_input('Really delete all {} guests?! (y/n):\n'.format(count)) == 'y':
             Party.objects.all().delete()
-            print 'guests deleted'
+            LOG.info('guests deleted')
         else:
-            print 'canceled'
+            LOG.info('canceled')
