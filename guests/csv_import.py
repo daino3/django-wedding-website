@@ -1,11 +1,11 @@
 import csv
-import StringIO
+from io import StringIO
 import uuid
 from guests.models import Party, Guest
 
 import logging
 
-LOG = loggin.getLogger(__name__)
+LOG = logging.getLogger(__name__)
 
 
 def import_guests(path):
