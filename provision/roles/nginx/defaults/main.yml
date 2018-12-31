@@ -1,2 +1,5 @@
 nginx_service_name: wedding
 nginx_service_port: 8000
+nginx_static_dir: /var/www/wedding/bigday/static
+nginx_media_dir: /var/www/wedding/photo/uploads
+nginx_server_name: kelseyanddain.com
