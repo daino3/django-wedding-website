@@ -30,6 +30,9 @@
                         <a class="page-scroll" href="#venue">Venue</a>
                     </li>
                     <li>
+                        <a class="page-scroll" href="#registry">Registry</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="#other-stuff">Everything Else</a>
                     </li>
                     <li>
@@ -46,13 +49,8 @@
         <div class="header-content">
             <div class="header-content-inner">
                 <h1>We did it!!</h1>
-                {% comment %}
                 <hr>
-                <h2>It's wedding week!</h2>
-                <a href="#welcome" class="btn btn-info btn-xl page-scroll">Welcome</a>
-                <a href="#event" class="btn btn-primary btn-xl page-scroll">Friday</a>
-                <a href="#saturday-event" class="btn btn-success btn-xl page-scroll">Saturday</a>
-                {% endcomment %}
+                <h2>{{ days_until_wedding }} Days Until The Big Day!</h2>
             </div>
         </div>
     </header>
@@ -63,7 +61,7 @@
                     <h2 class="section-heading">Welcome!</h2>
                     <hr>
                     <p>
-                        Hello friends and family! It's the week of the wedding!
+                        Hello friends and family!
                     </p>
                     <p>
                         If you're looking for information about the event, look no further!
@@ -125,29 +123,14 @@
         </div>
     </section>
     {% include 'partials/event.html' %}
-    <section id="venue">
-        {% include 'partials/venue.html' %}
-    </section>
-    <section id="accommodations">
-        {% include 'partials/accommodations.html' %}
-    </section>
-    <section id="things-to-do">
-        {% include 'partials/things-to-do.html' %}
-    </section>
-{% comment %}
-        {% include 'partials/wedding-party.html' %}
-{% endcomment %}
-    <section id="other-stuff" class="bg-primary">
-        {% include 'partials/misc.html' %}
-    </section>
-    <section id="registry">
-        {% include 'partials/registry.html' %}
-    </section>
-    <section id="story" class="bg-dark">
-        {% include 'partials/story.html' %}
-    </section>
+    <section id="venue">{% include 'partials/venue.html' %}</section>
+    <section id="accommodations">{% include 'partials/accommodations.html' %}</section>
+    <section id="things-to-do">{% include 'partials/things-to-do.html' %}</section>
+    {% include 'partials/wedding-party.html' %}
+    <section id="other-stuff" class="bg-primary">{% include 'partials/misc.html' %}</section>
+    <section id="registry">{% include 'partials/registry.html' %}</section>
+    <section id="story" class="bg-dark">{% include 'partials/story.html' %}</section>
     {% include 'partials/proposal.html' %}
-{#     {% include 'partials/save-the-dates.html' %} #}
     <section id="contact" class="bg-dark">
         <div class="container">
             <div class="row">
