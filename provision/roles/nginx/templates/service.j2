@@ -1,4 +1,18 @@
 server {
+    listen 80;
+    listen [::]:80;
+
+    server_name kelseyanddain.com; # substitute your machine's IP address or FQDN
+
+    # Django media
+    location /media  {
+        alias /var/www/wedding/photo/uploads;  # your Django project's media files - amend as required
+    }
+
+    location /static {
+        alias /var/www/wedding/bigday/static; # your Django project's static files - amend as required
+    }
+
     location / {
         proxy_pass http://localhost:{{ nginx_service_port }};
     }

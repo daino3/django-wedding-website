@@ -6,7 +6,7 @@ start:
 	python manage.py runserver 0.0.0.0:8000
 
 db_migrate:
-	python manage.py migrate $(migration)
+	python manage.py migrate
 
 db_makemigrations:
 	python manage.py makemigrations wedding

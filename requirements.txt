@@ -1,8 +1,7 @@
 django==1.11.17
-psycopg2==2.7.4
 django-extensions==2.1.4
 Pillow==5.3.0
 ipdb
 djangorestframework==3.9.0
-uwsgi==2.0.17.1
+uwsgi
 uwsgitop

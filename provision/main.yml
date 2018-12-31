@@ -49,6 +49,8 @@
     - { role: systemd }
 
   tasks:
-    name: Setup the App.
-    shell: make db_reset
-    chdir: /var/www/wedding
+    - name: Setup the App.
+      shell: source {{ venv_dir }}bin/activate && make db_reset
+      args:
+        chdir: /var/www/wedding
+        executable: /bin/bash

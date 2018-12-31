@@ -24,3 +24,5 @@
   notify:
     - reload systemctl
 
+- name: Systemd | Start the service
+  service: name={{ systemd_service_name }} state=restarted enabled=yes
