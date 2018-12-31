@@ -1,13 +1,5 @@
 # A Django Wedding Website and Invitation + Guest Management System
 
-Live site examples:
-
-- [Standard Wedding Website](http://coryandro.com/)
-- [Random Save The Date Email](http://coryandro.com/save-the-date/) (refresh for more examples)
-- [Sample Personal Invitation Page](http://coryandro.com/invite/b2ad24ec5dbb4694a36ef4ab616264e0/)
-
-There is also [a longer writeup on this project here](https://www.placecard.me/blog/django-wedding-website/).
-
 ## What's included?
 
 This includes everything we did for our own wedding:
@@ -22,8 +14,7 @@ More details on these below.
 
 ### The "Standard" Wedding Website
 
-The standard wedding website is a responsive, single-page, twitter bootstrap-based site (using a modified version of
-[this theme](https://blackrockdigital.github.io/startbootstrap-creative/)).
+The standard wedding website is a responsive, single-page, twitter bootstrap-based site.
 
 It is completely customizable to your needs and the content is laid out in standard django templates. By default it includes:
 
@@ -32,8 +23,6 @@ It is completely customizable to your needs and the content is laid out in stand
 - A photo/hover navigation pane
 - Configurable content sections for every aspect of your site that you want
 - A set of different styles you can use for different sections
-
-![Hero Section of Wedding Website](https://raw.githubusercontent.com/czue/django-wedding-website/master/screenshots/hero-page.png)
 
 ### Guest management
 
@@ -75,7 +64,7 @@ The app also comes with a built-in invitation system.
 The template is similar to the save-the-date template, however in addition to the standard invitation content it includes:
 
 - A built in tracking pixel to know whether someone has opened the email or not
-- Unique invitation URLs for each party with pre-populated guest names ([example](http://coryandro.com/invite/b2ad24ec5dbb4694a36ef4ab616264e0/))
+- Unique invitation URLs for each party with pre-populated guest names
 - Online RSVP system with meal selection and validation
 
 ### Guest dashboard
@@ -85,8 +74,6 @@ has to respond, people who haven't selected a meal, etc.
 It's a great way of tracking your big picture numbers in terms of how many guests to expect.
 
 Just access `/dashboard/` from an account with admin access. Your other guests won't be able to see it.
-
-![Wedding Dashboard](https://raw.githubusercontent.com/czue/django-wedding-website/master/screenshots/wedding-dashboard.png)
 
 ### Other details
 
@@ -109,11 +96,3 @@ python manage.py runserver
 
 I recommend forking this project and just manually modifying it by hand to replace everything with what you want.
 Searching for the text on a page in the repository is a great way to find where something lives.
-
-If you want to use this project for your wedding but need help getting started just [get in touch](http://www.coryzue.com/contact/) or make an issue
-for anything you encounter and I'm happy to help.
-
-I haven't built out more complete customization docs yet because I wasn't sure anyone would be interested in this,
-but am happy to do that if people are!
-
--Cory
