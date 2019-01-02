@@ -46,9 +46,10 @@
     </nav>
     {% block main %}
     <header id="main-header">
+        <div class="transparent-overlay"></div>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1>We did it!!</h1>
+                <h1>We're getting married!!</h1>
                 <hr>
                 <h2>{{ days_until_wedding }} Days Until The Big Day!</h2>
             </div>
@@ -129,6 +130,7 @@
     {% include 'partials/wedding-party.html' %}
     <section id="registry" class="bg-primary">{% include 'partials/registry.html' %}</section>
     <section id="story" class="bg-dark">{% include 'partials/story.html' %}</section>
+    <section id="carousel">{% include 'partials/carousel.html' %}</section>
     {% include 'partials/proposal.html' %}
     <section id="contact" class="bg-dark">
         <div class="container">

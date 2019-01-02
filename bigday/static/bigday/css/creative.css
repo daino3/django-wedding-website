@@ -71,6 +71,17 @@ p {
     color: rgba(255,255,255,.7);
 }
 
+.carousel-inner {
+    height: 450px;
+    line-height: 450px;
+}
+
+.carousel-inner .item img {
+    position: relative;
+    top: 25%;
+    transform: translateY(-25%);
+}
+
 section {
     padding: 50px 0;
 }
@@ -196,6 +207,16 @@ header {
     background-image: url('../images/hero.jpg');
 }
 
+.transparent-overlay {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: black;
+    opacity: 0.25;
+}
+
 header .header-content {
     position: relative;
     width: 100%;
@@ -203,7 +224,11 @@ header .header-content {
     text-align: center;
 }
 
-header .header-content .header-content-inner h1 {
+header .header-content .header-content-inner {
+    margin-top: 50%;
+}
+
+header .header-content .header-content-inner h1, h2 {
     margin-top: 135px;
     margin-bottom: 0;
     text-transform: uppercase;
