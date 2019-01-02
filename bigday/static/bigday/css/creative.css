@@ -77,9 +77,9 @@ p {
 }
 
 .carousel-inner .item img {
-    position: relative;
-    top: 25%;
-    transform: translateY(-25%);
+    height: 450px;
+    width: 100%;
+    object-fit: cover;
 }
 
 section {
