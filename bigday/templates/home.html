@@ -10,19 +10,24 @@
 
     {% block main %}
 
-    {% include 'partials/landing_page.html' %}
+    {% include 'partials/main_header.html' %}
+    {% include 'partials/section.html' with section=sections.1 id="welcome" className="bg-info text-center" %}
 
     {% include 'partials/occasion_preview.html' %}
 
-    {% include 'partials/event.html' %}
-    <section id="venue">{% include 'partials/venue.html' %}</section>
-    <section id="accommodations">{% include 'partials/accommodations.html' %}</section>
-    <section id="things-to-do">{% include 'partials/things-to-do.html' %}</section>
-    {% include 'partials/wedding-party.html' %}
-    <section id="registry" class="bg-primary">{% include 'partials/registry.html' %}</section>
-    <section id="story" class="bg-dark">{% include 'partials/story.html' %}</section>
+    {% include 'partials/section.html' with section=sections.2 id="event" className="bg-dark" %}
+    {% include 'partials/section.html' with section=sections.3 id="saturday-event" className="bg-info" %}
+    {% include 'partials/section.html' with section=sections.4 id="accomodations" className="" %}
+    {% include 'partials/section.html' with section=sections.5 id="things-to-do" className="" %}
+
+    {% include 'partials/section.html' with section=sections.6 id="venue" %}
+    {% include 'partials/section.html' with section=sections.7 id="wedding-party" className="bg-dark" %}
+    {% include 'partials/section.html' with section=sections.8 id="wedding-party" className="bg-info" %}
+    {% include 'partials/section.html' with section=sections.9 id="registry" %}
+    {% include 'partials/section.html' with section=sections.10 id="story" className="bg-dark"%}
+    {% include 'partials/section.html' with section=sections.11 id="proposal" className="bg-dark"%}
+
     <section id="carousel">{% include 'partials/carousel.html' %}</section>
-    {% include 'partials/proposal.html' %}
 
     {% endblock %}
 {% endblock %}
