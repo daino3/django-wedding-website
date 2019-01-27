@@ -12,5 +12,6 @@ class PhotoAdmin(admin.ModelAdmin):
 class SiteSectionAdmin(admin.ModelAdmin):
     list_display = ('order', 'name', 'content')
 
+
 admin.site.register(Photo, PhotoAdmin)
 admin.site.register(SiteSection, SiteSectionAdmin)

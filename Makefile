@@ -22,6 +22,9 @@ db_seed:
 shell:
 	python manage.py shell_plus
 
+ssh:
+	ssh -i keypairs/wedding.pem ubuntu@ec2-54-187-205-182.us-west-2.compute.amazonaws.com
+
 deploy:
 	ssh-add keypairs/wedding.pem
 	ansible-playbook -v -i provision/inventories/prod/hosts provision/main.yml

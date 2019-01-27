@@ -17,7 +17,7 @@
     #nginx
     nginx_service_name: wedding
     nginx_service_port: 8000
-    nginx_static_dir: /var/www/wedding/bigday/static
+    nginx_static_dir: /var/www/wedding/static_root
     nginx_media_dir: /var/www/wedding/photo/uploads
     nginx_server_name: kelseyanddain.com
     # systemd
@@ -52,6 +52,11 @@
     - { role: systemd }
 
   tasks:
+    - name: DB access
+      shell: chmod 777 ./db.sqlite3
+      args:
+        chdir: /var/www/wedding
+
     - name: Setup the App.
       shell: source {{ venv_dir }}bin/activate && make db_reset
       args:

@@ -27,3 +27,6 @@ class SiteSection(models.Model):
     name = models.CharField(max_length=500, null=True)
     order = models.IntegerField(null=True, blank=True, default=0, validators=[MinValueValidator(1)])
     content = models.TextField(null=False)
+
+
+
