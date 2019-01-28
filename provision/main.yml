@@ -52,13 +52,15 @@
     - { role: systemd }
 
   tasks:
-    - name: DB access
-      shell: chmod 777 ./db.sqlite3
-      args:
-        chdir: /var/www/wedding
+    - file:
+        path: /var/www/wedding/db.sqlite3
+        owner: ubuntu
+        group: ubuntu
+        # when specifying mode using octal numbers, add a leading 0
+        mode: 0777
 
     - name: Setup the App.
-      shell: source {{ venv_dir }}bin/activate && make db_reset
+      shell: source {{ venv_dir }}bin/activate && make db_migrate
       args:
         chdir: /var/www/wedding
         executable: /bin/bash
