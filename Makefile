@@ -25,6 +25,12 @@ shell:
 ssh:
 	ssh -i keypairs/wedding.pem ubuntu@ec2-54-187-205-182.us-west-2.compute.amazonaws.com
 
+deps:
+	pip install -r requirements.txt
+
+static:
+	python manage.py collectstatic
+
 deploy:
 	ssh-add keypairs/wedding.pem
 	ansible-playbook -v -i provision/inventories/prod/hosts provision/main.yml

@@ -10,7 +10,18 @@ class PhotoAdmin(admin.ModelAdmin):
         return format_html('<img style="height:50px;width:auto;" src="{}" />'.format(obj.photo.url))
 
 class SiteSectionAdmin(admin.ModelAdmin):
-    list_display = ('order', 'name', 'content')
+    list_display = ('order', 'name', 'section_content')
+
+
+    def section_content(self, obj):
+        iframe = """
+            <iframe srcdoc="{}" style="min-height:250px;width:600px;"></iframe>
+        """
+
+        return format_html(iframe, obj.content)
+
+
+
 
 
 admin.site.register(Photo, PhotoAdmin)
