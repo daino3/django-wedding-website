@@ -59,12 +59,6 @@
         # when specifying mode using octal numbers, add a leading 0
         mode: 0777
 
-    - name: Collect static files.
-      shell: source {{ venv_dir }}bin/activate && make static
-      args:
-        chdir: /var/www/wedding
-        executable: /bin/bash
-
     - name: Setup the App.
       shell: source {{ venv_dir }}bin/activate && make deps && make db_migrate
       args:
