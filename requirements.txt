@@ -6,3 +6,4 @@ djangorestframework==3.9.0
 uwsgi
 uwsgitop
 django-jet
+django-import-export

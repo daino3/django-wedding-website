@@ -85,3 +85,23 @@ class Guest(models.Model):
 
     def __unicode__(self):
         return 'Guest: {} {}'.format(self.first_name, self.last_name)
+
+
+class Address(models.Model):
+    guest = models.OneToOneField(Guest,
+                                 on_delete=models.CASCADE,
+                                 null=False,
+                                 related_name='address')
+    street_1 = models.CharField(max_length=200, null=False)
+    street_2 = models.CharField(max_length=200, null=True, blank=True)
+    city = models.CharField(max_length=200, null=False)
+    state = models.CharField(max_length=200, null=False)
+    postal_code = models.CharField(max_length=200, null=False)
+
+    class Meta:
+        db_table = "addresses"
+
+    def __str__(self):
+        return "{} {}, {}, {} {}".format(
+            self.street_1, self.street_2, self.city, self.region, self.postal_code
+        )

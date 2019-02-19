@@ -65,5 +65,11 @@
         chdir: /var/www/wedding
         executable: /bin/bash
 
+    - name: Collect static.
+      shell: rm -rf ./static_root && source {{ venv_dir }}bin/activate && make static
+      args:
+        chdir: /var/www/wedding
+        executable: /bin/bash
+
     - name: Restart the app.
       service: name=wedding state=restarted

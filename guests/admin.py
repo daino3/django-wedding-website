@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Guest, Party
+from import_export.admin import ImportExportModelAdmin
 
 
 class GuestInline(admin.TabularInline):
@@ -15,7 +16,7 @@ class PartyAdmin(admin.ModelAdmin):
     inlines = [GuestInline]
 
 
-class GuestAdmin(admin.ModelAdmin):
+class GuestAdmin(ImportExportModelAdmin):
     list_display = ('first_name', 'last_name', 'party', 'email', 'is_attending', 'is_child', 'meal')
     list_filter = ('is_attending', 'is_child', 'meal', 'party__is_invited', 'party__category', 'party__rehearsal_dinner')
 

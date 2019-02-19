@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'wedding.apps.WeddingConfig',
     'django_extensions',
     'rest_framework',
+    'import_export',
 ]
 
 MIDDLEWARE_CLASSES = [
