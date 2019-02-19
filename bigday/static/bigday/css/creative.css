@@ -71,21 +71,6 @@ p {
     color: rgba(255,255,255,.7);
 }
 
-.carousel-inner .carousel-item-right.active,
-.carousel-inner .carousel-item-next {
-  transform: translateX(33.33%);
-}
-
-.carousel-inner .carousel-item-left.active,
-.carousel-inner .carousel-item-prev {
-  transform: translateX(-33.33%)
-}
-
-.carousel-inner .carousel-item-right,
-.carousel-inner .carousel-item-left{
-  transform: translateX(0);
-}
-
 .carousel-inner {
     height: 450px;
     line-height: 450px;
@@ -95,6 +80,14 @@ p {
     height: 450px;
     width: 100%;
     object-fit: contain;
+}
+
+@media(min-width:768px) {
+    .carousel-inner .item img {
+        height: 450px;
+        width: 100%;
+        object-fit: cover;
+    }
 }
 
 section {
