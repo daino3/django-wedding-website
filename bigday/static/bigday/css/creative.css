@@ -260,6 +260,12 @@ header .header-content .header-content-inner h1 {
 
 }
 
+img.img-responsive {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
 #adler-map {
     height: 400px !important;
     width: 100%;

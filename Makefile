@@ -25,6 +25,9 @@ shell:
 ssh:
 	ssh -i keypairs/wedding.pem ubuntu@ec2-54-187-205-182.us-west-2.compute.amazonaws.com
 
+copy_db:
+	scp -i keypairs/wedding.pem ubuntu@ec2-54-187-205-182.us-west-2.compute.amazonaws.com:/var/www/wedding/db.sqlite3 ./db.sqlite3
+
 deps:
 	pip install -r requirements.txt
 
