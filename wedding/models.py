@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 from django.db import models
 from django.core.files.storage import FileSystemStorage
 from django.core.validators import MinValueValidator
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
 # Create your models here.
 
@@ -30,3 +32,15 @@ class SiteSection(models.Model):
 
 
 
+@receiver(pre_save, sender=SiteSection)
+def reorder_site_sections(sender, instance, **kwargs):
+    sections = [sec for sec in
+        SiteSection.objects.all().order_by('order').exclude(id=instance.id)
+    ]
+    sections.insert(instance.order - 1, instance)
+    for i, sec in enumerate(sections):
+        if sec.id is None:
+            continue
+        else:
+            # this will not call signals
+            SiteSection.objects.filter(id=sec.id).update(order=i+1)
