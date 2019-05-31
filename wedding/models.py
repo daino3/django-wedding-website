@@ -31,7 +31,6 @@ class SiteSection(models.Model):
     content = models.TextField(null=False)
 
 
-
 @receiver(pre_save, sender=SiteSection)
 def reorder_site_sections(sender, instance, **kwargs):
     sections = [sec for sec in

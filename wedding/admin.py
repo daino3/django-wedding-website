@@ -21,6 +21,7 @@ class SiteSectionAdmin(admin.ModelAdmin):
         return format_html(iframe, obj.content)
 
 
+    ordering = ('order',)
 
 
 

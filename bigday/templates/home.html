@@ -11,21 +11,21 @@
     {% block main %}
 
     {% include 'partials/main_header.html' %}
-    {% include 'partials/section.html' with section=sections.1 id="welcome" className="bg-info text-center" %}
+    {% include 'partials/section.html' with section=sections.1 id="welcome" className="bg-dark text-center" %}  {# welcome #}
 
     {% include 'partials/occasion_preview.html' %}
 
-    {% include 'partials/section.html' with section=sections.2 id="event" className="bg-dark" %}
-    {% include 'partials/section.html' with section=sections.3 id="saturday-event" className="bg-info" %}
-    {% include 'partials/section.html' with section=sections.4 id="accomodations" className="" %}
-    {% include 'partials/section.html' with section=sections.5 id="things-to-do" className="" %}
-
-    {% include 'partials/section.html' with section=sections.6 id="venue" %}
-    {% include 'partials/section.html' with section=sections.7 id="wedding-party" className="bg-dark" %}
-    {% include 'partials/section.html' with section=sections.8 id="wedding-party" className="bg-info" %}
-    {% include 'partials/section.html' with section=sections.9 id="registry" %}
-    {% include 'partials/section.html' with section=sections.10 id="story" className="bg-dark"%}
-    {% include 'partials/section.html' with section=sections.11 id="proposal" className="bg-dark"%}
+    {% include 'partials/section.html' with section=sections.2 id="story" className="bg-dark" %}          {# story #}
+    {% include 'partials/section.html' with section=sections.3 id="proposal" className="bg-info" %}       {# proposal #}
+    {% include 'partials/section.html' with section=sections.4 id="event" className="" %}                 {# friday #}
+    {% include 'partials/section.html' with section=sections.5 id="" className="bg-dark" %}               {# saturday #}
+    {% include 'partials/section.html' with section=sections.6 id="" className="bg-info" %}               {# sunday #}
+    {% include 'partials/section.html' with section=sections.7 id="accomodations" className="" %}         {# accomodations #}
+    {% include 'partials/section.html' with section=sections.8 id="" className="bg-dark" %}               {# things to do #}
+    {% include 'partials/section.html' with section=sections.9 id="venue" className="" %}                 {# venue #}
+    {% include 'partials/section.html' with section=sections.10 id="wedding-party" className="bg-dark"%}  {# bridal party #}
+    {% include 'partials/section.html' with section=sections.11 id="" className="bg-info"%}               {# groomsmen #}
+    {% include 'partials/section.html' with section=sections.12 id="registry" className=""%}       {# registry #}
 
     <section id="carousel">{% include 'partials/carousel.html' %}</section>
 
